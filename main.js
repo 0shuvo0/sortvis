@@ -82,18 +82,22 @@ function quickSort(arr, start, end){
 	var index = partition(arr, start, end);
 	setTimeout(function(){
 		quickSort(arr, start, index - 1);
-		quickSort(arr, index  + 1, end);
+		//quickSort(arr, index  + 1, end);
 	}, 200);
+	setTimeout(function(){
+		//quickSort(arr, start, index - 1);
+		quickSort(arr, index  + 1, end);
+	}, 400);
 }
 
 function insertionSort(arr, i = 0){
 	var value = arr[i], hole = i;
 	var _v = bars[i]
 	while(hole > 0 && arr[hole - 1] > value){
-			arr[hole] = arr[hole - 1];
-			bars[hole] = bars[hole - 1];
-			bars[hole].style.animation = "0.2s colorizeB";
-			hole--;
+		arr[hole] = arr[hole - 1];
+		bars[hole] = bars[hole - 1];
+		bars[hole].style.animation = "0.2s colorizeB";
+		hole--;
 	}
 	arr[hole] = value;
 	bars[hole] = _v;
